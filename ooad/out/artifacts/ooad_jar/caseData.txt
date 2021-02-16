@@ -1,0 +1,4 @@
+DEXP DC-102B, MidTower, StandardATX
+Deepcool Wave V2, MiniTower, MiniITX
+Deepcool Smarter, MicroTower, MicroATX
+Fractal Design Define XL R2, FullTower, XLATX

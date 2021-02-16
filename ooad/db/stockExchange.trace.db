@@ -1,0 +1,3 @@
+2020-12-21 23:11:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Объект уже закрыт
+The object is already closed [90007-200]
