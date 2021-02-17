@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="AirportInformationSystem:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/AirportInformationSystem_jar</output-path>
+    <root id="archive" name="AirportInformationSystem.jar">
+      <element id="module-output" name="AirportInformationSystem" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/airportInformationSystem/ojdbc6.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
