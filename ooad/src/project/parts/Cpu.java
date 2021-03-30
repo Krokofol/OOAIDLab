@@ -21,7 +21,7 @@ public class Cpu extends Part {
                 + "Tdp       INTEGER     NOT NULL,"     //4
                 + "Rate      DOUBLE      NOT NULL,"     //5
                 + "BoostRate DOUBLE      NOT NULL,"     //6
-                + "L3        INTEGER     NOT NULL,"   //7
+                + "L3        INTEGER     NOT NULL,"     //7
                 + "FOREIGN KEY (Socket) REFERENCES SOCKET (Socket));";
         DataBase.executeSql(sql, "create cpu table if not exists\n");
         insertFromFile();

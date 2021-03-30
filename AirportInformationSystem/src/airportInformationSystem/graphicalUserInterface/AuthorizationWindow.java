@@ -70,7 +70,6 @@ public class AuthorizationWindow {
                                 props.setProperty("user", login.getText());
                                 props.setProperty("password", password.getText());
 
-
                                 TimeZone timeZone = TimeZone.getTimeZone("GMT+7");
                                 TimeZone.setDefault(timeZone);
                                 Locale.setDefault(Locale.ENGLISH);
@@ -79,13 +78,13 @@ public class AuthorizationWindow {
                                 conn.close();
 
                                 AuthorizationWindow.free();
+                                new WorkingWindow("you are entered");
                                 System.out.print("\nDONE\n");
                                 System.exit(0);
                             } catch (SQLException error) {
                                 System.out.println(login.getText() + " \n " + password.getText());
-                                System.out.print("\n!!!bad Authorization!!!\n");
+                                new WorkingWindow("bad login or password");
                                 AuthorizationWindow.free();
-                                System.exit(1);
                             }
                         }
                     }
