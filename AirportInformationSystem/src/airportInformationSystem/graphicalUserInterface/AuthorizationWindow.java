@@ -1,5 +1,8 @@
 package airportInformationSystem.graphicalUserInterface;
 
+import airportInformationSystem.Main;
+import airportInformationSystem.working.WorkingWindow;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -45,16 +48,12 @@ public class AuthorizationWindow {
             this.setSize(sizeX, sizeY);
             this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
             this.setLayout(null);
-            JPanel panel = new JPanel();
-            panel.setLayout(null);
-
             class AuthorizationButton extends JButton {
                 public AuthorizationButton(String name, int posX, int posY, int sizeX, int sizeY) {
                     super(name);
                     this.setBounds(posX, posY, sizeX, sizeY);
                     this.setText(name);
                     this.setVisible(true);
-
                     class AuthorizatuionAction implements ActionListener {
                         @Override
                         public void actionPerformed(ActionEvent e) {
@@ -69,21 +68,16 @@ public class AuthorizationWindow {
                                 Properties props = new Properties();
                                 props.setProperty("user", login.getText());
                                 props.setProperty("password", password.getText());
-
                                 TimeZone timeZone = TimeZone.getTimeZone("GMT+7");
                                 TimeZone.setDefault(timeZone);
                                 Locale.setDefault(Locale.ENGLISH);
-
-                                Connection conn = DriverManager.getConnection(url, props);
-                                conn.close();
-
+                                Main.connection = DriverManager.getConnection(url, props);
+                                WorkingWindow.create();
                                 AuthorizationWindow.free();
-                                new WorkingWindow("you are entered");
                                 System.out.print("\nDONE\n");
-                                System.exit(0);
                             } catch (SQLException error) {
+                                System.out.println("\nNOT DONE\n");
                                 System.out.println(login.getText() + " \n " + password.getText());
-                                new WorkingWindow("bad login or password");
                                 AuthorizationWindow.free();
                             }
                         }
@@ -91,17 +85,13 @@ public class AuthorizationWindow {
                     this.addActionListener(new AuthorizatuionAction());
                 }
             }
-
-
             class AuthorizationTextField extends JTextField {
                 public AuthorizationTextField(String name, int posX, int posY, int sizeX, int sizeY) {
                     super(name);
-                    //this.setBounds(90, 173, 100, 25);
                     this.setBounds(posX, posY, sizeX, sizeY);
                     this.setVisible(true);
                 }
             }
-
             class AuthorizationPasswordField extends JPasswordField {
                 public AuthorizationPasswordField(String name, int posX, int posY, int sizeX, int sizeY) {
                     super(name);
@@ -110,12 +100,10 @@ public class AuthorizationWindow {
                     this.setVisible(true);
                 }
             }
-
             login = new AuthorizationTextField("", 90, 173, 100, 25);
             password = new AuthorizationPasswordField("", 90, 202, 100, 25);
             this.add(login);
             this.add(password);
-
             this.add(new AuthorizationButton("login",192, 185, 100, 25));
             this.setVisible(true);
         }

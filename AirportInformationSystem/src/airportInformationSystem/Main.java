@@ -2,12 +2,12 @@ package airportInformationSystem;
 
 import airportInformationSystem.graphicalUserInterface.AuthorizationWindow;
 
-import javax.swing.*;
 import java.sql.*;
 
 public class Main {
-    public static void main(String[] args) throws SQLException {
-        AuthorizationWindow.create();
+    public static Connection connection = null;
 
+    public static void main(String[] args) {
+        AuthorizationWindow.create();
     }
 }
